@@ -108,7 +108,7 @@ const Header: React.FC = () => {
         </div>
         
         {/* Logo (Mobile: left, Desktop: center) */}
-        <div className="flex-shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+        <div className="flex-shrink-0 md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2">
            <motion.a 
             href="#hero" 
             aria-label="Back to top"

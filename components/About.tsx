@@ -155,6 +155,20 @@ const About: React.FC = () => {
                         <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
                             Built on a foundation of trust, transparency, and a genuine dedication to your financial well-being.
                         </p>
+                        <motion.div
+                            className="mt-10 pt-6 border-t border-brand-gold/30 max-w-2xl mx-auto"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
+                            <p className="font-sans text-xl text-white tracking-wider">
+                            This commitment is guided by our <strong className="font-bold text-brand-gold-light">S.O.A.R.</strong> philosophy:
+                            </p>
+                            <p className="mt-2 text-3xl font-serif italic text-brand-gold">
+                            Stewarding Our Assets Responsibly
+                            </p>
+                        </motion.div>
                     </motion.div>
                     
                     <motion.div 
