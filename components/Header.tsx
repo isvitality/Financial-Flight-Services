@@ -86,7 +86,7 @@ const Header: React.FC = () => {
     },
     scrolled: {
       position: 'absolute',
-      top: '0.4rem',
+      top: '0.25rem',
       left: '1rem',
       translateX: '0%',
     }
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
   const ctaText = "Book a Consultation";
 
   return (
-    <header className="bg-brand-black sticky top-0 z-50 border-b border-brand-muted/50 h-36 md:h-[68px]">
+    <header className="bg-brand-black sticky top-0 z-50 border-b border-brand-muted/50 h-36 md:h-24">
       <div className="container mx-auto px-4 h-full flex justify-between items-center relative">
         
         {/* Left Nav (Desktop) */}
@@ -134,7 +134,7 @@ const Header: React.FC = () => {
             transition={{ type: 'spring', stiffness: 150, damping: 20, delay: 0.2 }}
           >
             <motion.div
-              animate={{ height: scrolled ? '3.5rem' : '12rem' }} // h-14 vs h-48
+              animate={{ height: scrolled ? '5.5rem' : '12rem' }}
               transition={{ type: 'spring', stiffness: 200, damping: 25 }}
             >
               <Logo className="h-full w-auto" textColor="text-white" />
