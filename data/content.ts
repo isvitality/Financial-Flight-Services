@@ -1,11 +1,11 @@
 export const content = {
   company: {
-    name: "Financial Flight Services",
+    name: "Financial Flight LLC",
     logo: "https://geotapmedia.com/FinancialFlightServices/images/logo1.png"
   },
   about: {
     title: "Your Partners in Financial Clarity",
-    description: "At Financial Flight Services, we're dedicated to making your financial journey smooth and successful. We offer clear, year-round tax guidance for individuals, families, and small businesses, helping you maximize legal deductions and achieve your goals with confidence. Our approach is built on trust, transparency, and a genuine commitment to your financial well-being.",
+    description: "At Financial Flight LLC, we're dedicated to making your financial journey smooth and successful. We offer clear, year-round tax guidance for individuals, families, and small businesses, helping you maximize legal deductions and achieve your goals with confidence. Our approach is built on trust, transparency, and a genuine commitment to your financial well-being.",
     image: "https://images.pexels.com/photos/8995631/pexels-photo-8995631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   services: [
@@ -81,7 +81,7 @@ export const content = {
     name: "Adrian Wright",
     title: "Founder & Lead Strategist",
     image: "https://geotapmedia.com/FinancialFlightServices/images/adrian.jpg",
-    bio: "Adrian is the founder of Financial Flight Services, dedicated to helping clients navigate their financial lives with confidence. With a passion for demystifying taxes and a focus on personalized strategies, he has built the firm on a foundation of clarity, integrity, and client success. Adrian ensures every client feels understood and empowered.",
+    bio: "Adrian is the founder of Financial Flight LLC, dedicated to helping clients navigate their financial lives with confidence. With a passion for demystifying taxes and a focus on personalized strategies, he has built the firm on a foundation of clarity, integrity, and client success. Adrian ensures every client feels understood and empowered.",
     cta: "Schedule a Consultation"
   }
 };

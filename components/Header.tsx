@@ -6,7 +6,18 @@ import { usePopupContext } from '../contexts/PopupContext';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { openCalendly } = usePopupContext();
+  const [scrolled, setScrolled] = useState(false);
   
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -14,7 +25,6 @@ const Header: React.FC = () => {
       document.body.style.overflow = 'auto';
     }
 
-    // Cleanup function to restore scroll on component unmount
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -23,7 +33,7 @@ const Header: React.FC = () => {
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    setIsMenuOpen(false); // Close menu on link click
+    setIsMenuOpen(false);
     
     const href = e.currentTarget.getAttribute('href');
     if (!href || !href.startsWith('#')) return;
@@ -32,7 +42,6 @@ const Header: React.FC = () => {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
-      // A small delay to allow the menu to start closing before scrolling
       setTimeout(() => {
         targetElement.scrollIntoView({
           behavior: 'smooth',
@@ -58,26 +67,9 @@ const Header: React.FC = () => {
   ];
   
   const menuVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      x: '100%',
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: '100%',
-      transition: {
-        duration: 0.3,
-        ease: [0.6, 0.05, -0.01, 0.9],
-      },
-    },
+    hidden: { opacity: 0, x: '100%' },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+    exit: { opacity: 0, x: '100%', transition: { duration: 0.3, ease: [0.6, 0.05, -0.01, 0.9] } },
   };
   
   const navItemVariants = {
@@ -85,14 +77,33 @@ const Header: React.FC = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const logoContainerVariants: Variants = {
+    top: {
+      position: 'absolute',
+      top: '-3rem',
+      left: '50%',
+      translateX: '-50%',
+    },
+    scrolled: {
+      position: 'absolute',
+      top: '0.4rem',
+      left: '1rem',
+      translateX: '0%',
+    }
+  };
+
   const ctaText = "Book a Consultation";
 
   return (
-    <header className="bg-brand-black sticky top-0 z-50 border-b border-brand-muted/50">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header className="bg-brand-black sticky top-0 z-50 border-b border-brand-muted/50 h-36 md:h-[68px]">
+      <div className="container mx-auto px-4 h-full flex justify-between items-center relative">
         
         {/* Left Nav (Desktop) */}
-        <div className="hidden md:flex flex-1 justify-start">
+        <motion.div 
+          className="hidden md:flex flex-1 justify-start"
+          animate={{ x: scrolled ? 160 : 0 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+        >
           <nav className="flex items-center space-x-8">
             {navLinks.map((link) => (
               <a 
@@ -105,20 +116,37 @@ const Header: React.FC = () => {
               </a>
             ))}
           </nav>
-        </div>
+        </motion.div>
         
-        {/* Logo (Mobile: left, Desktop: center) */}
-        <div className="flex-shrink-0 md:absolute md:-top-12 md:left-1/2 md:-translate-x-1/2">
+        {/* Logo Container for Desktop Animation */}
+        <motion.div
+          className="hidden md:block flex-shrink-0"
+          variants={logoContainerVariants}
+          animate={scrolled ? 'scrolled' : 'top'}
+          transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+        >
            <motion.a 
             href="#hero" 
             aria-label="Back to top"
             onClick={handleLinkClick}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: -100, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 150, damping: 20, delay: 0.2 }}
           >
-            <Logo className="h-48" textColor="text-white" />
+            <motion.div
+              animate={{ height: scrolled ? '3.5rem' : '12rem' }} // h-14 vs h-48
+              transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+            >
+              <Logo className="h-full w-auto" textColor="text-white" />
+            </motion.div>
           </motion.a>
+        </motion.div>
+
+        {/* Logo for Mobile */}
+        <div className="md:hidden">
+          <a href="#hero" aria-label="Back to top" onClick={handleLinkClick}>
+            <Logo className="h-32" textColor="text-white" />
+          </a>
         </div>
         
         {/* Right CTA (Desktop) */}

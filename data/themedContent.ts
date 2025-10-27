@@ -25,7 +25,7 @@ export const themeAssets: Record<SeasonalTheme | 'none', ThemedAsset> = {
     accentImage: 'https://geotapmedia.com/VictoryDiamondFinancialServices/images/theme-winter.png',
     quote: {
       text: "A well-defined plan is the runway from which your financial goals can take flight. Let's prepare for takeoff.",
-      cite: "Financial Flight Services"
+      cite: "Financial Flight LLC"
     },
     video: {
       thumbnail: 'https://images.pexels.com/photos/159887/pexels-photo-159887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -222,7 +222,7 @@ export const themeAssets: Record<SeasonalTheme | 'none', ThemedAsset> = {
     accentImage: 'https://geotapmedia.com/VictoryDiamondFinancialServices/images/theme-none.png',
     quote: {
       text: "Clarity in finance isn't just about numbers; it's about confidence in your future. Let's build that together.",
-      cite: "Financial Flight Services"
+      cite: "Financial Flight LLC"
     },
     video: {
       thumbnail: 'https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

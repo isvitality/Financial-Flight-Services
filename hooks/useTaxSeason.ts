@@ -61,7 +61,7 @@ export const useTaxSeason = (): TaxSeasonInfo => {
 
   const coreContent = {
     title: 'Your Smooth Takeoff for a Successful Financial Year',
-    subtitle: "Financial Flight Services offers clear, year-round tax guidance to help individuals, families, and small businesses navigate their finances with confidence.",
+    subtitle: "Financial Flight LLC offers clear, year-round tax guidance to help individuals, families, and small businesses navigate their finances with confidence.",
   };
 
   let season: TaxSeason;

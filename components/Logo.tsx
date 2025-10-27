@@ -46,7 +46,7 @@ export const Logo: React.FC<LogoProps> = ({ className, textColor = 'text-gray-90
         letterSpacing="0.05em"
         className={`fill-current ${textColor} opacity-80`}
       >
-        SERVICES
+        TAX SERVICES
       </text>
     </svg>
   );

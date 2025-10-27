@@ -1,9 +1,10 @@
 
-# Super Prompt: Financial Flight Services Website (Replication Blueprint)
+
+# Super Prompt: Financial Flight LLC Website (Replication Blueprint)
 
 ## 1. Project Goal
 
-Your task is to build a sophisticated, professional, and dynamic single-page website for a financial services company named "Financial Flight Services". The site must be a pixel-perfect and functionally identical replica of the provided source code.
+Your task is to build a sophisticated, professional, and dynamic single-page website for a financial services company named "Financial Flight LLC". The site must be a pixel-perfect and functionally identical replica of the provided source code.
 
 This document contains the complete specification. Follow it meticulously.
 
@@ -20,7 +21,7 @@ Create a `package.json` file with the following dependencies and scripts:
 
 ```json
 {
-  "name": "financial-flight-services-replica",
+  "name": "victory-tax-services",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -202,18 +203,18 @@ The main HTML file. It must include Google Fonts, the inline Tailwind config, cu
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Financial Flight Services</title>
+    <title>Financial Flight LLC | Tax & Financial Services</title>
 
     <!-- SEO & Metadata -->
-    <meta name="description" content="Financial Flight Services offers clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease." />
-    <meta name="keywords" content="tax preparation, financial services, small business tax, tax planning, financial clarity, adrian wright, financial flight services" />
-    <meta name="author" content="Financial Flight Services" />
+    <meta name="description" content="Financial Flight Tax Services offers clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease." />
+    <meta name="keywords" content="tax preparation, financial services, small business tax, tax planning, financial clarity, adrian wright, financial flight tax services" />
+    <meta name="author" content="Financial Flight LLC" />
     <link rel="canonical" href="https://www.financialflightservices.com" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.financialflightservices.com" />
-    <meta property="og:title" content="Financial Flight Services | Your Partners in Financial Clarity" />
+    <meta property="og:title" content="Financial Flight Tax Services | Your Partners in Financial Clarity" />
     <meta property="og:description" content="Clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease." />
     <meta property="og:image" content="https://geotapmedia.com/FinancialFlightServices/images/hero.png" />
     <meta property="og:image:width" content="1200" />
@@ -222,7 +223,7 @@ The main HTML file. It must include Google Fonts, the inline Tailwind config, cu
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.financialflightservices.com" />
-    <meta property="twitter:title" content="Financial Flight Services | Your Partners in Financial Clarity" />
+    <meta property="twitter:title" content="Financial Flight Tax Services | Your Partners in Financial Clarity" />
     <meta property="twitter:description" content="Clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease." />
     <meta property="twitter:image" content="https://geotapmedia.com/FinancialFlightServices/images/hero.png" />
     
@@ -324,8 +325,8 @@ The main HTML file. It must include Google Fonts, the inline Tailwind config, cu
 
 ```json
 {
-  "name": "Financial Flight Services",
-  "description": "Financial Flight Services offers clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease.",
+  "name": "Financial Flight LLC",
+  "description": "Financial Flight Tax Services offers clear, year-round tax guidance for individuals, families, and small businesses. We help you navigate your finances with confidence and ease.",
   "requestFramePermissions": []
 }
 ```
@@ -377,7 +378,7 @@ Centralize all site content in this file.
 // Example structure:
 export const content = {
   company: {
-    name: "Financial Flight Services",
+    name: "Financial Flight LLC",
     logo: "https://geotapmedia.com/FinancialFlightServices/images/logo1.png"
   },
   about: { /* ... */ },
