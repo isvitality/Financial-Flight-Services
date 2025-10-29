@@ -1,100 +1,129 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants from framer-motion to explicitly type animation variants, resolving a TypeScript error.
+import { motion, Variants } from 'framer-motion';
 import { usePopupContext } from '../contexts/PopupContext';
-import { CheckIcon } from './icons';
+import { CalendarIcon, ShieldIcon, DocumentIcon, CheckIcon } from './icons';
+
+const processSteps = [
+    {
+        icon: CalendarIcon,
+        title: "Book a Consultation",
+        description: "Schedule a free, no-obligation call to discuss your unique needs and see how we can help you achieve your financial goals."
+    },
+    {
+        icon: ShieldIcon,
+        title: "Secure Document Upload",
+        description: "Easily and safely upload your tax documents through our encrypted, user-friendly client portal."
+    },
+    {
+        icon: DocumentIcon,
+        title: "Expert Preparation",
+        description: "Our dedicated team meticulously prepares your return, ensuring accuracy while maximizing every legal deduction."
+    },
+    {
+        icon: CheckIcon,
+        title: "Review & E-File",
+        description: "We'll review the completed return with you for your final approval. Then, we securely e-file it on behalf of."
+    }
+];
 
 const Recruitment: React.FC = () => {
     const { openCalendly } = usePopupContext();
 
-    const handleRegisterClick = () => {
+    const handleBookClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
         openCalendly();
     };
+    
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
 
-    const listItems = [
-        "Comprehensive Tax Training",
-        "Marketing & Client Support",
-        "Professional Tax Software",
-        "Bank Product Integration"
-    ];
+    // FIX: Explicitly type `itemVariants` as `Variants` to ensure the `ease` property is correctly typed, resolving an error.
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        },
+    };
 
     return (
-        <section id="recruitment" className="py-20 bg-white">
+        <section id="process" className="py-20 bg-white">
             <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    
-                    {/* Text Column */}
+                <motion.div
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 font-serif">Our Simple & Secure Process</h2>
+                    <p className="mt-4 text-lg text-gray-500 max-w-3xl mx-auto">
+                        We make getting your taxes done easy and transparent. Here’s what to expect.
+                    </p>
+                </motion.div>
+
+                <div className="relative">
+                    {/* Connecting line for desktop */}
+                    <div 
+                        aria-hidden="true" 
+                        className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-gray-200"
+                    ></div>
+
                     <motion.div
-                        className="order-2 md:order-1"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 relative"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold font-serif text-gray-800">Join Our Professional Team</h2>
-                        <div className="mt-4 inline-block bg-gradient-to-r from-white via-white to-brand-gold-light/30 font-bold px-4 py-2 rounded-md shadow-md border border-gray-200">
-                            <h3 className="text-xl tracking-wide uppercase text-brand-dark">Begin Your Career as a Tax Professional</h3>
-                        </div>
-                        
-                        <p className="mt-8 text-xl font-bold text-gray-700">OUR PROGRAM INCLUDES:</p>
-                        <ul className="mt-4 space-y-4">
-                            {listItems.map((item, index) => (
-                                <motion.li
+                        {processSteps.map((step, index) => {
+                            const Icon = step.icon;
+                            return (
+                                <motion.div
                                     key={index}
-                                    className="flex items-center gap-4"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                                    className="text-center flex flex-col items-center"
+                                    variants={itemVariants}
                                 >
-                                    <CheckIcon className="w-6 h-6 text-brand-gold flex-shrink-0" />
-                                    <span className="text-lg text-gray-600">{item}</span>
-                                </motion.li>
-                            ))}
-                        </ul>
-
-                        <motion.button
-                            onClick={handleRegisterClick}
-                            className="mt-10 inline-block bg-brand-gold text-white font-bold px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl hover:bg-brand-gold-muted transition-all duration-300 transform hover:-translate-y-1 btn-shine text-shadow-dark"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Apply to Learn More
-                        </motion.button>
-                    </motion.div>
-
-                    {/* Image Column */}
-                    <motion.div
-                        className="order-1 md:order-2"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="col-span-2 rounded-lg overflow-hidden shadow-2xl group">
-                                <img 
-                                    src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    alt="A professional team collaborating in a modern office" 
-                                    className="w-full h-full object-cover aspect-[16/9] transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <div className="h-48 rounded-lg overflow-hidden shadow-xl group">
-                                <img 
-                                    src="https://images.pexels.com/photos/4144101/pexels-photo-4144101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    alt="A person receiving professional training" 
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <div className="h-48 rounded-lg overflow-hidden shadow-xl group">
-                                <img 
-                                    src="https://images.pexels.com/photos/5668887/pexels-photo-5668887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    alt="A successful tax professional working remotely" 
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                        </div>
+                                    <div className="relative z-10 flex items-center justify-center w-24 h-24 bg-white">
+                                       <div className="absolute w-full h-full bg-brand-gold-light/40 rounded-full scale-110"></div>
+                                       <div className="relative flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-md">
+                                            <Icon className="w-10 h-10 text-brand-gold-muted" />
+                                       </div>
+                                    </div>
+                                    <h3 className="text-xl font-bold font-serif mb-3 text-gray-900 mt-6">{`Step ${index + 1}: ${step.title}`}</h3>
+                                    <p className="text-gray-600 flex-grow">{step.description}</p>
+                                </motion.div>
+                            );
+                        })}
                     </motion.div>
                 </div>
+
+
+                <motion.div
+                    className="text-center mt-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                >
+                    <button
+                        onClick={handleBookClick}
+                        className="inline-block bg-brand-gold text-white font-bold px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl hover:bg-brand-gold-muted transition-all duration-300 transform hover:-translate-y-1 btn-shine btn-glow text-shadow-dark"
+                    >
+                        Get Started Today
+                    </button>
+                </motion.div>
             </div>
         </section>
     );
