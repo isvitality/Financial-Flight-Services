@@ -78,7 +78,7 @@ export const content = {
     }
   ],
   expert: {
-    name: "Adrian Wright",
+    name: "Adrian Jones",
     title: "Founder & Lead Strategist",
     image: "https://geotapmedia.com/FinancialFlightServices/images/adrian.jpg",
     bio: "Adrian is the founder of Financial Flight LLC, dedicated to helping clients navigate their financial lives with confidence. With a passion for demystifying taxes and a focus on personalized strategies, he has built the firm on a foundation of clarity, integrity, and client success. Adrian ensures every client feels understood and empowered.",
