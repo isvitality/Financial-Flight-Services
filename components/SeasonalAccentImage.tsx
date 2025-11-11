@@ -65,8 +65,10 @@ const SeasonalAccentImage: React.FC = () => {
     const { accents } = useSeasonalTheme();
     const [animationProps1, setAnimationProps1] = useState<AnimationProps | null>(null);
     const [animationProps2, setAnimationProps2] = useState<AnimationProps | null>(null);
+    const [isClient, setIsClient] = useState(false); // New state to track client-side rendering
 
     useEffect(() => {
+        setIsClient(true); // Mark as client-side after first render
         // Generate random animation properties on the client side after the component mounts.
         // This avoids server-client hydration mismatches that can occur when using Math.random() during the initial render.
         setAnimationProps1(generateRandomAnimationProps('topLeft'));
@@ -74,9 +76,10 @@ const SeasonalAccentImage: React.FC = () => {
     }, [accents]); // Re-calculate if the theme (and thus accents) changes.
 
 
-    // Render nothing until the client-side animations are ready.
-    if (!accents || accents.length === 0 || !animationProps1 || !animationProps2) {
-        return null;
+    // Render an empty fragment on the server, or if accents are not yet loaded on client.
+    // The actual images will only render on the client once isClient is true and animationProps are set.
+    if (!isClient || !accents || accents.length === 0 || !animationProps1 || !animationProps2) {
+        return <></>; // Render an empty fragment to maintain consistent DOM structure
     }
 
     const accent1 = accents[0];
