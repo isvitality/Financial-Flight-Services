@@ -4,8 +4,6 @@ import { content } from '../data/content';
 import SeasonalAccentImage from './SeasonalAccentImage';
 
 const LeadMagnet: React.FC = () => {
-  const formLink = "https://53e4f5eb.sibforms.com/serve/MUIFAJewVEANrW9I7T8F14FcRuggwSIrCnSyia7c-rafnMFQY3mzsuNW-6Onrg6luffuucY12BDBLSAAK1DLIsZ_yS74TNn3LqSH2i6NKxojTEwCylmdkr4ibl_tCH1tGKxxdzr3ijZVGrkL6vlTT1uVGvbqqhb4fDbDnCuTeH1auCuo0-Bzy3Kiaute2Ve3M7E6t7Y8SbT26IxLfA==";
-
   return (
     <section id="magnet" className="py-20 bg-brand-black relative z-10 overflow-hidden">
       <SeasonalAccentImage />
@@ -38,15 +36,25 @@ const LeadMagnet: React.FC = () => {
             <h2 className="text-3xl lg:text-4xl font-bold font-serif text-gray-900 text-center">{content.magnet.title}</h2>
             <p className="mt-4 text-lg text-gray-600 text-center">{content.magnet.subhead}</p>
             
-            <div className="mt-8 text-center">
-              <a 
-                href={formLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-block bg-brand-gold text-white font-bold px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl hover:bg-brand-gold-muted transition-all duration-300 transform hover:-translate-y-1 btn-shine btn-glow text-shadow-dark"
+            <div className="mt-8 h-[500px]">
+              <iframe
+                  src="https://53e4f5eb.sibforms.com/serve/MUIFAJewVEANrW9I7T8F14FcRuggwSIrCnSyia7c-rafnMFQY3mzsuNW-6Onrg6luffuucY12BDBLSAAK1DLIsZ_yS74TNn3LqSH2i6NKxojTEwCylmdkr4ibl_tCH1tGKxxdzr3ijZVGrkL6vlTT1uVGvbqqhb4fDbDnCuTeH1auCuo0-Bzy3Kiaute2Ve3M7E6t7Y8SbT26IxLfA=="
+                  style={{width: '100%', height: '100%', border: 'none', borderRadius: '3px'}}
+                  id="inline-f0GncOitDJTGWd54Bw1Z" 
+                  data-layout='{"id":"INLINE"}'
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Lead Magnet Form New"
+                  data-height="500"
+                  data-layout-iframe-id="inline-f0GncOitDJTGWd54Bw1Z"
+                  data-form-id="f0GncOitDJTGWd54Bw1Z"
+                  title="Lead Magnet Form New"
               >
-                Download Your Free Checklist
-              </a>
+              </iframe>
             </div>
 
           </motion.div>
