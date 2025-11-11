@@ -79,7 +79,7 @@ const SeasonalAccentImage: React.FC = () => {
     // Render an empty fragment on the server, or if accents are not yet loaded on client.
     // The actual images will only render on the client once isClient is true and animationProps are set.
     if (!isClient || !accents || accents.length === 0 || !animationProps1 || !animationProps2) {
-        return <></>; // Render an empty fragment to maintain consistent DOM structure
+        return null; // Original behavior was to return null
     }
 
     const accent1 = accents[0];
