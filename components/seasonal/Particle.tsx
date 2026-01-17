@@ -22,10 +22,10 @@ export const Particle: React.FC<ParticleProps> = ({ content, durationRange, font
     ? { y: [settings.initialY, `${parseFloat(settings.initialY) - 50}px`, settings.initialY], opacity: [0, 0.7, 0] }
     : { y: '100vh', x: [0, settings.drift, 0] };
 
-  // Fix: Explicitly type `transitionProps` as `Transition` to prevent type widening of the `ease` property.
+  // FIX: Explicitly type `transitionProps` as `Transition` to prevent type widening of the `ease` property.
   const transitionProps: Transition = isFloating
-    ? { duration: settings.duration, ease: 'easeInOut', delay: settings.delay }
-    : { duration: settings.duration, ease: 'linear', delay: settings.delay };
+    ? { duration: settings.duration, ease: 'easeInOut', repeat: Infinity, delay: settings.delay }
+    : { duration: settings.duration, ease: 'linear', repeat: Infinity, delay: settings.delay };
 
 
   return (

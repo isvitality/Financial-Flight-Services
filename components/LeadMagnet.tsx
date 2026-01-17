@@ -37,7 +37,7 @@ const LeadMagnet: React.FC = () => {
             <p className="mt-4 text-lg text-gray-600 text-center">{content.magnet.subhead}</p>
             
             <div className="mt-8 h-[500px]">
-              <iframe
+                <iframe
                   src="https://53e4f5eb.sibforms.com/serve/MUIFAJewVEANrW9I7T8F14FcRuggwSIrCnSyia7c-rafnMFQY3mzsuNW-6Onrg6luffuucY12BDBLSAAK1DLIsZ_yS74TNn3LqSH2i6NKxojTEwCylmdkr4ibl_tCH1tGKxxdzr3ijZVGrkL6vlTT1uVGvbqqhb4fDbDnCuTeH1auCuo0-Bzy3Kiaute2Ve3M7E6t7Y8SbT26IxLfA=="
                   style={{width: '100%', height: '100%', border: 'none', borderRadius: '3px'}}
                   id="inline-f0GncOitDJTGWd54Bw1Z" 
