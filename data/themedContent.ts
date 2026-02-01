@@ -1,3 +1,4 @@
+
 import { SeasonalTheme } from '../hooks/useSeasonalTheme';
 
 // Define a type for a single theme's content
@@ -18,7 +19,8 @@ type ThemedAsset = {
 const HERO_IMAGE_URL = 'https://geotapmedia.com/FinancialFlightServices/images/hero.png';
 
 // Create a mapping of theme to assets
-export const themeAssets: Record<SeasonalTheme | 'none', ThemedAsset> = {
+// FIX: Update the Record keys to strictly match SeasonalTheme type definitions.
+export const themeAssets: Record<SeasonalTheme, ThemedAsset> = {
   // Seasons
   winter: {
     heroBackground: HERO_IMAGE_URL,
@@ -86,7 +88,8 @@ export const themeAssets: Record<SeasonalTheme | 'none', ThemedAsset> = {
       description: "A new year means new opportunities. Watch how we help clients set and achieve ambitious financial resolutions with a clear, confident plan."
     }
   },
-  valentines: {
+  // FIX: Rename 'valentines' to 'valentines_day' to align with the hook logic and type.
+  valentines_day: {
     heroBackground: HERO_IMAGE_URL,
     accentImage: 'https://geotapmedia.com/VictoryDiamondFinancialServices/images/theme-valentines.png',
     quote: {
@@ -203,7 +206,8 @@ export const themeAssets: Record<SeasonalTheme | 'none', ThemedAsset> = {
       description: "This Thanksgiving, we're grateful for our clients. See the stories of success and security that we've had the privilege to be a part of."
     }
   },
-  christmas: {
+  // FIX: Rename 'christmas' to 'winter_holiday' to align with SeasonalTheme definitions.
+  winter_holiday: {
     heroBackground: HERO_IMAGE_URL,
     accentImage: 'https://geotapmedia.com/VictoryDiamondFinancialServices/images/theme-christmas.png',
     quote: {

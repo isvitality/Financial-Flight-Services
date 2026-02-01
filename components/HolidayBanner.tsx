@@ -1,15 +1,18 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSeasonalTheme, SeasonalTheme } from '../hooks/useSeasonalTheme';
 import { GiftIcon } from './icons';
 
 const getHolidayMessage = (theme: SeasonalTheme): string | null => {
+    // FIX: Type messages object explicitly to ensure compatibility with SeasonalTheme type.
     const messages: { [key in SeasonalTheme]?: string | string[] } = {
         'new_year': [
           `Happy New Year! Here's to a fresh start and a prosperous year ahead.`,
           `Happy New Year! Wishing you a prosperous year ahead.`
         ],
-        'valentines': [
+        // FIX: Rename 'valentines' to 'valentines_day' to match the updated SeasonalTheme type.
+        'valentines_day': [
           `Happy Valentine's Day! Show your family some financial love by securing their future.`,
           `Happy Valentine's Day! Let's build a financial future you'll love.`
         ],
@@ -45,7 +48,8 @@ const getHolidayMessage = (theme: SeasonalTheme): string | null => {
           `Happy Thanksgiving! We're grateful for the opportunity to help you build a secure future.`,
           `Happy Thanksgiving! We're grateful to help you plan for a secure future.`
         ],
-        'christmas': [
+        // FIX: Rename 'christmas' to 'winter_holiday' to match the updated SeasonalTheme type returned by hook for Dec.
+        'winter_holiday': [
           `Merry Christmas! Wishing you a season of joy and a new year of financial security.`,
           `Merry Christmas! Wishing you joy, peace, and financial well-being.`
         ],

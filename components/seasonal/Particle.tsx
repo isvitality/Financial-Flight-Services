@@ -13,7 +13,8 @@ export const Particle: React.FC<ParticleProps> = ({ content, durationRange, font
     x: `${Math.random() * 100}%`,
     initialY: isFloating ? `${Math.random() * 100}%` : `${-Math.random() * 100}%`,
     duration: Math.random() * (durationRange[1] - durationRange[0]) + durationRange[0],
-    delay: Math.random() * 5,
+    // Negative delay ensures particles are already on screen when the component mounts
+    delay: (Math.random() * 5) - 5, 
     fontSize: Math.floor(Math.random() * (fontSizeRange[1] - fontSizeRange[0]) + fontSizeRange[0]),
     drift: Math.random() * 40 - 20,
   }), [durationRange, fontSizeRange, isFloating]);
@@ -22,7 +23,6 @@ export const Particle: React.FC<ParticleProps> = ({ content, durationRange, font
     ? { y: [settings.initialY, `${parseFloat(settings.initialY) - 50}px`, settings.initialY], opacity: [0, 0.7, 0] }
     : { y: '100vh', x: [0, settings.drift, 0] };
 
-  // FIX: Explicitly type `transitionProps` as `Transition` to prevent type widening of the `ease` property.
   const transitionProps: Transition = isFloating
     ? { duration: settings.duration, ease: 'easeInOut', repeat: Infinity, delay: settings.delay }
     : { duration: settings.duration, ease: 'linear', repeat: Infinity, delay: settings.delay };

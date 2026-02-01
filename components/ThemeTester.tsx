@@ -3,24 +3,14 @@ import { useSimulatedDateContext } from '../contexts/SimulatedDateContext';
 
 const availableThemes = [
   { value: 'none', label: 'Default (Actual Date)' },
-  { value: 'PEAK_SEASON', label: 'Tax Season (Peak)' },
-  { value: 'OFF_SEASON', label: 'Tax Season (Off)' },
-  { value: 'PRE_SEASON', label: 'Tax Season (Pre)' },
-  { value: 'winter', label: 'Winter (Generic)' },
-  { value: 'new_year', label: "New Year's Day (Jan 1)" },
-  { value: 'valentines', label: "Valentine's Day (Feb 14)" },
-  { value: 'st_patricks', label: "St. Patrick's Day (Mar 17)" },
-  { value: 'spring', label: 'Spring (Generic)' },
-  { value: 'easter', label: 'Easter (Apr)' },
-  { value: 'mothers_day', label: "Mother's Day (May)" },
-  { value: 'fathers_day', label: "Father's Day (Jun)" },
-  { value: 'summer', label: 'Summer (Generic)' },
-  { value: 'patriotic', label: 'Independence Day (July 4th)' },
-  { value: 'labor_day', label: 'Labor Day (Sep)' },
-  { value: 'early_fall', label: 'Fall (Generic)' },
-  { value: 'halloween', label: 'Halloween (Oct 31)' },
-  { value: 'thanksgiving', label: 'Thanksgiving (Nov)' },
-  { value: 'christmas', label: 'Christmas (Dec 25)' },
+  { value: 'winter', label: 'Winter (Neutral/Snow)' },
+  { value: 'winter_holiday', label: 'Winter Holiday (Dec/Santa)' },
+  { value: 'valentines_day', label: 'Valentines Window (Feb 1-15)' },
+  { value: 'st_patricks', label: 'St. Patricks Window (Mar 10-20)' },
+  { value: 'spring', label: 'Spring Season' },
+  { value: 'summer', label: 'Summer Season' },
+  { value: 'early_fall', label: 'Fall Season' },
+  { value: 'halloween', label: 'Halloween Window (Oct 20-31)' },
 ];
 
 interface ThemeTesterProps {
@@ -56,7 +46,7 @@ const ThemeTester: React.FC<ThemeTesterProps> = ({ isVisible, onClose }) => {
         <button onClick={onClose} className="text-2xl font-mono text-gray-500 hover:text-gray-800 leading-none -mt-1" aria-label="Close theme tester">&times;</button>
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="theme-select" className="text-xs font-medium text-gray-600">Force Theme / Date:</label>
+        <label htmlFor="theme-select" className="text-xs font-medium text-gray-600">Teleport to Season:</label>
         <select 
           id="theme-select"
           value={currentTheme} 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Logo } from './Logo';
 import { content } from '../data/content';
 import { FacebookIcon, InstagramIcon } from './icons';
-import SovereignRegistry from './SovereignRegistry';
+import SovereignSignature from './SovereignSignature';
 
 interface FooterProps {
   onLogoClick: () => void;
@@ -45,8 +45,8 @@ const Footer: React.FC<FooterProps> = ({ onLogoClick }) => {
           </div>
         </div>
         
-        {/* Ghost-tier diagnostic sub-component */}
-        <SovereignRegistry />
+        {/* Ghost-tier vibrational signature */}
+        <SovereignSignature />
       </div>
     </footer>
   );
